@@ -8,6 +8,16 @@ namespace ClothingStoreWebApi.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.AdminControllerModels",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Email = c.String(),
+                        Password = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -94,6 +104,7 @@ namespace ClothingStoreWebApi.Migrations
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.AdminControllerModels");
         }
     }
 }
